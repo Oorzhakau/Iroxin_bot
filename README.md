@@ -40,6 +40,7 @@ python manage.py createsuperuser
 ```
 - По адресу localhost:8000/admin/ переходим в панель и входим под ранее созданным superuser-ом;
 <img src="media/Django_admin.JPG" alt="django-admin">
+
 - Проект запущен и готов к работе.
 
 ### Список исполнителей
