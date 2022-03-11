@@ -24,7 +24,6 @@ sudo apt install docker docker-compose -y
 - Переименовываете файл .env_example на .env и заполняете его нужными значениями переменных окружения.<br>
 Help по токенам
     <ul>
-       <li><a href="https://oauth.yandex.ru/authorize?response_type=token&client_id=1d0b9dd4d652455a9eb710d450ff456a">Токен Практикум.Домашка</a></li>
        <li><a href="https://core.telegram.org/bots#6-botfather">Токен телеграмм-бота</a></li>
        <li>Ваш telegram id можно узнать у бота @userinfobot</li>
     </ul>
@@ -40,6 +39,7 @@ python manage.py createsuperuser
 ```
 - По адресу localhost:8000/admin/ переходим в панель и входим под ранее созданным superuser-ом;
 <img src="media/Django_admin.JPG" alt="django-admin">
+
 - Проект запущен и готов к работе.
 
 ### Список исполнителей
