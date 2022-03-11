@@ -1,4 +1,7 @@
+"""Главное меню бота."""
+
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
+
 
 main_menu = ReplyKeyboardMarkup(
     keyboard=[

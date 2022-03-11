@@ -1,3 +1,7 @@
+"""Реализация базовых команд для асинхронного запроса к базе
+данных Postgres через Django ORM.
+"""
+
 import os
 import sys
 from pathlib import Path
@@ -90,7 +94,7 @@ def get_count_products() -> int:
 
 
 async def get_page(page: int = 1) -> int:
-    """Получить страницу"""
+    """Получить страницу."""
     max_val = await get_count_products()
     if page >= max_val:
         page = max_val

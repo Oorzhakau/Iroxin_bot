@@ -8,6 +8,7 @@ from loader import dp
 
 @dp.message_handler(Text(startswith="О нас"))
 async def about_us(message: Message):
+    """Реализация ответа на сообщение 'О нас'."""
     text = "\n".join(
         [
             "💉Компания <b>«КоРус»</b> работает с 2013 года и за это время "
@@ -22,5 +23,5 @@ async def about_us(message: Message):
             "Вебсайт: https://smart.iroxin.ru/",
         ]
     )
-    logging.info(text)
     await message.answer(text=text)
+    logging.info(text)

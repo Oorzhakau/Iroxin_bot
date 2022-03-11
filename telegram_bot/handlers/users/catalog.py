@@ -25,10 +25,12 @@ async def get_catalog(message: Message):
             ),
             reply_markup=get_pages_keyboard(products),
         )
+    logging.info(f"Отправка каталог user id {message.from_user.id}")
 
 
 @dp.callback_query_handler(pagination_call.filter(key="items"))
 async def show_chosen_page(call: CallbackQuery, callback_data: dict):
+    """Переключение по меню с помощью callback запросов."""
     await call.answer()
     products = list(await commands.get_all_products())
     root_path = "/src"
@@ -53,3 +55,4 @@ async def show_chosen_page(call: CallbackQuery, callback_data: dict):
         caption=text,
         reply_markup=markup,
     )
+    logging.info(f"Переключение в меню")

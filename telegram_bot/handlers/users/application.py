@@ -21,7 +21,7 @@ async def cancel_application(message: Message, state: FSMContext):
         return
     await state.finish()
     await message.answer(
-        f"Подача заявки отменена.",
+        "Подача заявки отменена.",
         reply_markup=ReplyKeyboardRemove(),
     )
     logging.info("Отмена на этапе %r", current_state)
@@ -91,8 +91,8 @@ async def get_phone(message: Message, state: FSMContext):
         )
         return
     await message.answer(
-        text=f"Спасибо за ваши ответы! Заявка отправлена!\n"
-        + f"Наш менеджер свяжется с вами в ближайшее время.",
+        text="Спасибо за ваши ответы! Заявка отправлена!\n"
+        + "Наш менеджер свяжется с вами в ближайшее время.",
         reply_markup=ReplyKeyboardRemove(),
     )
     await commands.get_then_update(
@@ -102,7 +102,7 @@ async def get_phone(message: Message, state: FSMContext):
         chat_id=int(GROUP),
         text="\n".join(
             [
-                f"✉️ Заявка от:",
+                "✉️ Заявка от:",
                 f"Имя: {name}",
                 f"Email: {email}",
                 f"Phone: {phone}",
@@ -111,4 +111,4 @@ async def get_phone(message: Message, state: FSMContext):
     )
     # send_data_to_form(email=email, name=name, phone=phone)
     await state.finish()
-    logging.info(f"Заявка оформлена и отправлена.")
+    logging.info("Заявка оформлена и отправлена.")

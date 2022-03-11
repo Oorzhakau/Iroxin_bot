@@ -1,3 +1,5 @@
+"""Задание базовых конфигурация для логгирования."""
+
 import logging
 
 logging.basicConfig(

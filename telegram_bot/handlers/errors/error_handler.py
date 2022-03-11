@@ -8,13 +8,7 @@ from loader import dp
 
 @dp.errors_handler()
 async def errors_handler(update, exception):
-    """
-    Exceptions handler. Catches all exceptions within task factory tasks.
-    :param dispatcher:
-    :param update:
-    :param exception:
-    :return: stdout logging
-    """
+    """Error handler перехватывающий все исключения."""
 
     if isinstance(exception, MessageNotModified):
         logging.exception("Message is not modified")
