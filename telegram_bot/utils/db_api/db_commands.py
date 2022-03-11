@@ -1,11 +1,9 @@
-import asyncio
 import os
 import sys
 from pathlib import Path
-from typing import Coroutine, List, Optional, Union
+from typing import List, Optional, Union
 
 from asgiref.sync import sync_to_async
-from data.config import ADMINS
 
 ROOT_DIR = Path(__file__).parents[3]
 MODEL_PATH = os.path.join(ROOT_DIR, "django_project")
