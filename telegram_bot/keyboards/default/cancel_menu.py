@@ -1,4 +1,4 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
 cancel_menu = ReplyKeyboardMarkup(
     keyboard=[
@@ -6,5 +6,5 @@ cancel_menu = ReplyKeyboardMarkup(
             KeyboardButton(text="❌Отменить"),
         ],
     ],
-    resize_keyboard=True
+    resize_keyboard=True,
 )

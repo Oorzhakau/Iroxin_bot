@@ -1,1 +1,1 @@
-from . import help, start, menu, about_us, catalog, application
+from . import about_us, application, catalog, help, menu, start

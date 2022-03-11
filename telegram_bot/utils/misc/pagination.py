@@ -1,8 +1,7 @@
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.callback_data import CallbackData
 
 pagination_call = CallbackData("paginator", "key", "page")
-show_item = CallbackData("show_item", "item_id")
 
 
 def get_pages_keyboard(array, page: int = 1) -> InlineKeyboardMarkup:
@@ -25,8 +24,7 @@ def get_pages_keyboard(array, page: int = 1) -> InlineKeyboardMarkup:
     pages_buttons.append(
         InlineKeyboardButton(
             text=first_page_text,
-            callback_data=pagination_call.new(key=key,
-                                              page=first_page)
+            callback_data=pagination_call.new(key=key, page=first_page),
         )
     )
 
@@ -37,24 +35,23 @@ def get_pages_keyboard(array, page: int = 1) -> InlineKeyboardMarkup:
         pages_buttons.append(
             InlineKeyboardButton(
                 text=previous_page_text,
-                callback_data=pagination_call.new(key=key,
-                                                  page=previous_page)
+                callback_data=pagination_call.new(key=key, page=previous_page),
             )
         )
     else:
         pages_buttons.append(
             InlineKeyboardButton(
                 text=" . ",
-                callback_data=pagination_call.new(key=key,
-                                                  page="current_page")
+                callback_data=pagination_call.new(
+                    key=key, page="current_page"
+                ),
             )
         )
 
     pages_buttons.append(
         InlineKeyboardButton(
             text=f"- {page} -",
-            callback_data=pagination_call.new(key=key,
-                                              page="current_page")
+            callback_data=pagination_call.new(key=key, page="current_page"),
         )
     )
 
@@ -65,24 +62,23 @@ def get_pages_keyboard(array, page: int = 1) -> InlineKeyboardMarkup:
         pages_buttons.append(
             InlineKeyboardButton(
                 text=next_page_text,
-                callback_data=pagination_call.new(key=key,
-                                                  page=next_page)
+                callback_data=pagination_call.new(key=key, page=next_page),
             )
         )
     else:
         pages_buttons.append(
             InlineKeyboardButton(
                 text=" . ",
-                callback_data=pagination_call.new(key=key,
-                                                  page="current_page")
+                callback_data=pagination_call.new(
+                    key=key, page="current_page"
+                ),
             )
         )
 
     pages_buttons.append(
         InlineKeyboardButton(
             text=max_page_text,
-            callback_data=pagination_call.new(key=key,
-                                              page=max_page)
+            callback_data=pagination_call.new(key=key, page=max_page),
         )
     )
 

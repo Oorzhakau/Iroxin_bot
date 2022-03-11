@@ -1,4 +1,4 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
 main_menu = ReplyKeyboardMarkup(
     keyboard=[
@@ -8,7 +8,7 @@ main_menu = ReplyKeyboardMarkup(
         ],
         [
             KeyboardButton(text="О нас 👨‍⚕️"),
-        ]
+        ],
     ],
-    resize_keyboard=True
+    resize_keyboard=True,
 )
