@@ -1,0 +1,59 @@
+version: '3.1'
+
+services:
+  db:
+    container_name: iroxin_db
+    image: postgres
+    env_file:
+      - ".env"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+      - botnet
+    volumes:
+      - ./postgres:/var/lib/postgresql
+  django:
+    container_name: iroxin_django
+    build:
+      context: .
+    command: bash -c "
+        cd django_project/ &&
+        python manage.py makemigrations iroxin &&
+        python manage.py migrate &&
+        python manage.py runserver 0.0.0.0:8000 --noreload"
+    ports:
+      - 8000:8000
+    networks:
+      - botnet
+    restart: always
+    volumes:
+      - .:/src
+    env_file:
+      - ".env"
+    depends_on:
+      - db
+  tgbot:
+    container_name: iroxin_bot
+    build:
+      context: .
+    command: bash -c "
+      cd telegram_bot &&
+      python app.py"
+    networks:
+      - botnet
+    restart: always
+    volumes:
+      - .:/src
+    env_file:
+      - ".env"
+    depends_on:
+      - db
+      - django
+
+networks:
+  botnet:
+    driver: bridge
