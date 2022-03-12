@@ -17,7 +17,9 @@ import sys
 ENV_DIR = os.path.join(Path(__file__).parents[2], 'data')
 sys.path.append(ENV_DIR)
 
-from config import (POSTGRES_DB,
+from config import (DJANGO_ALLOWED_HOSTS,
+                    SECRET_KEY,
+                    POSTGRES_DB,
                     POSTGRES_USER,
                     POSTGRES_PASSWORD,
                     DB_HOST,
@@ -31,12 +33,13 @@ BASE_DIR = os.path.dirname(Path(__file__).parents[1])
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i-%)k3l(30v@h#tvfi53h1j^o96w)c+qg7ua1#_+me6z9j!1x#'
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = int(os.environ.get("DEBUG", default=0))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = DJANGO_ALLOWED_HOSTS.split(" ")
 
 
 # Application definition
@@ -131,7 +134,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

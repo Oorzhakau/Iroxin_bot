@@ -8,7 +8,9 @@ env.read_env()
 BOT_TOKEN = env.str("BOT_TOKEN")
 ADMINS = env.list("ADMINS")
 GROUP = env.str("GROUP")
-IP = env.str("ip")
+
+DJANGO_ALLOWED_HOSTS = env.str("DJANGO_ALLOWED_HOSTS")
+SECRET_KEY = env.str("SECRET_KEY")
 
 POSTGRES_DB = env.str("POSTGRES_DB")
 POSTGRES_USER = env.str("POSTGRES_USER")

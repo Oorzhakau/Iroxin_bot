@@ -13,7 +13,7 @@ async def get_catalog(message: Message):
     """Функция отправки каталога пользователю."""
     root_path = "/src"
     products = list(await commands.get_all_products())
-    if products is not None:
+    if products:
         await message.answer_photo(
             photo=InputFile(root_path + products[0].image.url),
             caption="\n".join(

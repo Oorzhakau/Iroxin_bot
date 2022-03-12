@@ -21,13 +21,15 @@ services:
     build:
       context: .
     command: bash -c "
+        mkdir static &&
         cd django_project/ &&
         python manage.py makemigrations iroxin &&
         python manage.py migrate &&
         python manage.py initadmin &&
-        python manage.py runserver 0.0.0.0:8000 --noreload"
+        python manage.py collectstatic --no-input &&
+        gunicorn django_project.wsgi:application --bind 0.0.0.0:8000"
     ports:
-      - 8000:8000
+      - 8002:8000
     networks:
       - botnet
     restart: always

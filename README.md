@@ -4,7 +4,7 @@
 
 Бот регистрирует пользователя, заносит его в базу данных, позволяет просматривать каталог товаров и отправлять заявку на сайт компании для консультацииб при этом дублируя ее в телеграм группу для менеджеров.
 Взаимодействие с базой данных PostgreSQL реализовано через ORM и Админ-панель Django.
-<img src="media/Django.JPG" alt="django">
+<img src="media/Django.JPG" alt="django" border="1">
 Асинхронная логика телеграм-бота реализована с помощью фреймворка aiogram.
 
 Для ознакомление с проектом можно перейти на бота по ссылке https://t.me/iroxin_bot
@@ -31,14 +31,8 @@ Help по токенам
 ```
 docker-compose up --build
 ```
-- Переходим в контейнер с django для создания суперпользователя, необходимого для входа в административную панель
-```
-docker exec -it iroxin_django bash
-cd django_project
-python manage.py createsuperuser
-```
-- По адресу localhost:8000/admin/ переходим в панель и входим под ранее созданным superuser-ом;
-<img src="media/Django_admin.JPG" alt="django-admin">
+- По адресу localhost:8002/admin/ переходим в панель и входим под ранее созданным superuser-ом;
+<img src="media/Django_admin.JPG" alt="django-admin" border="1">
 
 - Проект запущен и готов к работе.
 
